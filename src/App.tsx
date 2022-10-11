@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { greet } from "./utils/greet";
-import axios, { Axios } from "axios";
 
-const baseUrl = process.env.NODE_ENV === "production" ? "https://env-var-testing.onrender.com/" : "http://localhost:4000"
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://env-var-testing.onrender.com/"
+    : "http://localhost:4000";
 
 function App(): JSX.Element {
-
   const [message, setMessage] = useState<string>();
   // const [isFirstLoad, setIsFirstLoad] = useState(true);
 
@@ -25,20 +26,18 @@ function App(): JSX.Element {
   useEffect(() => {
     // safe to ignore exhaustive deps warning as we're _not_ triggering infinite updates, since our setState is conditional and not executed on all rerenders after the first one
     // if (isFirstLoad) {
-      // populate data on first load
-      loadDataFromEndpoint("/");
-      // setIsFirstLoad(false);
+    // populate data on first load
+    loadDataFromEndpoint("/");
+    // setIsFirstLoad(false);
     // }
-  },[]);
+  }, []);
 
-
-  return <>
+  return (
+    <>
       <h1>{greet("World")}</h1>
       <p>this is my backend response:{` ${message}`}</p>
-
-  </>
-
-  
+    </>
+  );
 }
 
 export default App;
