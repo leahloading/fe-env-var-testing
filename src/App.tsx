@@ -3,7 +3,7 @@ import { greet } from "./utils/greet";
 
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://env-var-testing.onrender.com/"
+    ? "https://env-var-testing.onrender.com"
     : "http://localhost:4000";
 
 function App(): JSX.Element {
